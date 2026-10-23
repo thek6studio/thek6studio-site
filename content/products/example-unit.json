@@ -1,0 +1,14 @@
+{
+  "title": "Example unit (hidden)",
+  "description": "Replace this with a short description of the unit: what students learn and what's included.",
+  "stage": "Early Stage 1",
+  "subject": "HSIE",
+  "price": "$0.00",
+  "image": "/images/moving-through-time.jpg",
+  "image_alt": "",
+  "payhip_key": "",
+  "other_link": "",
+  "other_link_label": "",
+  "order": 1,
+  "hidden": true
+}

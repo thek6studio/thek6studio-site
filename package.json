@@ -1,0 +1,9 @@
+{
+  "name": "thek6studio-site",
+  "private": true,
+  "description": "The K-6 Studio website. Content lives in /content; the design lives in build.js and /static/css.",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "engines": { "node": ">=18" }
+}

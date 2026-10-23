@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "heading": "Engaging resources for brighter classrooms.",
+    "intro": "Quality, curriculum-aligned teaching resources for Kindergarten to Year 6 in NSW.",
+    "primary_button": "Browse resources",
+    "secondary_button": "Free samples"
+  },
+  "free": {
+    "label": "Free samples",
+    "heading": "Try Lesson 1 free, for every stage",
+    "intro": "Teach a full lesson from one of my Unit 4 units before you buy. Each sample includes the Lesson 1 slides and the matching worksheet.",
+    "box_heading": "Get your free lessons",
+    "box_text": "Pop in your email, choose your stage and the download links appear straight away.",
+    "box_button": "Get the free lessons",
+    "box_link": "https://forms.google.com/"
+  },
+  "resources": {
+    "label": "Resources",
+    "heading": "Units for every stage, Kindergarten to Year 6",
+    "intro": "Each unit is a complete term of teaching, mapped to the new NSW syllabus outcomes for Early Stage 1, Stage 1, Stage 2 and Stage 3.",
+    "shop_heading": "Shop the units"
+  },
+  "subjects": [
+    {
+      "name": "Creative Arts",
+      "icon": "palette",
+      "colour": "coral",
+      "description": "Visual arts, music, drama and dance units with step-by-step lessons.",
+      "link_label": "Shop Creative Arts",
+      "link": "https://www.teachbuysell.com.au/"
+    },
+    {
+      "name": "HSIE",
+      "icon": "globe",
+      "colour": "mustard",
+      "description": "History and Geography units, from transport past and present to global environments.",
+      "link_label": "Shop HSIE",
+      "link": "https://www.teachbuysell.com.au/"
+    },
+    {
+      "name": "PDHPE",
+      "icon": "heart",
+      "colour": "sage",
+      "description": "Health, wellbeing and movement lessons that build confident, caring learners.",
+      "link_label": "Shop PDHPE",
+      "link": "https://www.teachbuysell.com.au/"
+    },
+    {
+      "name": "Science and Technology",
+      "icon": "flask",
+      "colour": "aqua",
+      "description": "Hands-on investigations, from animal skeletons and movement to materials and design.",
+      "link_label": "Shop Science",
+      "link": "https://www.teachbuysell.com.au/"
+    }
+  ],
+  "inside": {
+    "label": "Inside every unit",
+    "heading": "Pick it up and teach it tomorrow",
+    "items": [
+      {
+        "title": "Lesson slides",
+        "text": "Engaging slides for every lesson, with teacher notes in each one."
+      },
+      {
+        "title": "Matching worksheets",
+        "text": "A printable worksheet for every lesson, ready to copy."
+      },
+      {
+        "title": "Display resources",
+        "text": "Images, maps, cards and charts to show on screen or print."
+      },
+      {
+        "title": "NSW syllabus aligned",
+        "text": "Learning intentions, success criteria and outcomes in every lesson."
+      }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "heading": "Designed by a teacher, for teachers",
+    "paragraphs": [
+      "Hi, I'm [Your name], a NSW primary teacher. I started The K–6 Studio to give busy teachers practical, beautiful units they can trust, so you can spend less time planning and more time with your students.",
+      "Every unit is written for real NSW classrooms, with clear learning intentions, hands-on activities and tasks for a range of learners."
+    ],
+    "note": "The K–6 Studio was formerly Little Learners Lane. Same resources, fresh new look.",
+    "values": [
+      "Quality resources.",
+      "Confident teachers.",
+      "Brighter learners."
+    ]
+  },
+  "instagram": {
+    "heading": "Follow along on Instagram",
+    "text": "New units, freebies and classroom ideas at @thek6studioau"
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Say hello",
+    "intro": "Questions about a unit, or an idea for a resource you'd love to see? Get in touch."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "site_title": "The K–6 Studio",
+  "meta_description": "Engaging, curriculum-aligned teaching resources for NSW primary classrooms, Kindergarten to Year 6. Try a free Lesson 1 for every stage.",
+  "brand_name": "THE K–6 STUDIO",
+  "brand_tagline": "NSW PRIMARY TEACHING RESOURCES",
+  "domain": "thek6studio.com.au",
+  "email": "",
+  "instagram_handle": "thek6studioau",
+  "cart_link": "https://www.teachbuysell.com.au/",
+  "other_stores": [
+    {
+      "label": "TeachBuySell",
+      "url": "https://www.teachbuysell.com.au/"
+    },
+    {
+      "label": "TPT",
+      "url": "https://www.teacherspayteachers.com/"
+    }
+  ]
+}
