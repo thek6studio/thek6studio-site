@@ -73,6 +73,37 @@ const icon = (name) =>
 const TICK = '<span class="tick"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF8F1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span>';
 
 let usesPayhip = false;
+let usesGallery = false;
+const EYE = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+
+// Preview gallery: a pop-up for flicking through preview pages. Only added when a unit has preview images.
+const GALLERY = `
+<dialog class="lightbox" aria-label="Preview">
+  <div class="lb-top"><span class="lb-title"></span><span class="lb-count"></span><button type="button" class="lb-close" aria-label="Close preview">✕</button></div>
+  <div class="lb-stage">
+    <button type="button" class="lb-nav lb-prev" aria-label="Previous page">‹</button>
+    <img class="lb-img" alt="">
+    <button type="button" class="lb-nav lb-next" aria-label="Next page">›</button>
+  </div>
+</dialog>
+<script>
+(function(){
+  var d=document.querySelector('.lightbox'); if(!d) return;
+  var img=d.querySelector('.lb-img'), count=d.querySelector('.lb-count'), title=d.querySelector('.lb-title'), list=[], i=0;
+  function show(){ img.src=list[i]; img.alt=title.textContent+' preview page '+(i+1); count.textContent=list.length>1?(i+1)+' / '+list.length:''; d.classList.toggle('single',list.length<2); }
+  function go(n){ i=(i+n+list.length)%list.length; show(); }
+  document.querySelectorAll('[data-gallery]').forEach(function(b){
+    b.addEventListener('click',function(){ try{list=JSON.parse(b.dataset.gallery)}catch(e){list=[]} if(!list.length)return; i=0; title.textContent=b.dataset.title||''; show(); d.showModal(); });
+  });
+  d.querySelector('.lb-prev').onclick=function(){go(-1)}; d.querySelector('.lb-next').onclick=function(){go(1)};
+  d.querySelector('.lb-close').onclick=function(){d.close()};
+  d.addEventListener('click',function(e){ if(e.target===d) d.close(); });
+  d.addEventListener('keydown',function(e){ if(e.key==='ArrowLeft')go(-1); if(e.key==='ArrowRight')go(1); });
+  var x0=null; img.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  img.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40)go(dx<0?1:-1); x0=null; });
+})();
+</script>
+`;
 const payhipButton = (k, label, cls) => {
   usesPayhip = true;
   return `<a href="https://payhip.com/b/${k}" class="btn ${cls} btn-sm payhip-buy-button" data-theme="none" data-product="${k}">${esc(label)}</a>`;
@@ -100,9 +131,19 @@ const productCards = products
     if (k) button = payhipButton(k, "Buy now", "btn-coral");
     else if (p.other_link) button = `<a class="btn btn-coral btn-sm" href="${url(p.other_link)}"${ext(p.other_link)}>${esc(p.other_link_label || "View unit")}</a>`;
     else button = `<span class="btn btn-sm" aria-disabled="true">Coming soon</span>`;
+    const imgs = (Array.isArray(p.preview_images) ? p.preview_images : [p.preview_images]).filter(Boolean);
+    const previews = [];
+    if (imgs.length) {
+      usesGallery = true;
+      previews.push(
+        `<button type="button" class="preview-link" data-gallery="${esc(JSON.stringify(imgs))}" data-title="${esc(p.title)}">${EYE}Preview ${imgs.length > 1 ? `${imgs.length} pages` : "page"}</button>`
+      );
+    }
+    if (p.preview_pdf) previews.push(`<a class="preview-link" href="${url(p.preview_pdf)}" target="_blank" rel="noopener">${EYE}Preview PDF</a>`);
     return `          <article class="product">
             ${picture(p)}
             <div class="product-body">${tag(p)}<h3>${txt(p.title)}</h3><p>${txt(p.description)}</p>
+              ${previews.length ? `<div class="previews">${previews.join("")}</div>` : ""}
               <div class="product-foot"><span class="price">${esc(p.price)}</span>${button}</div>
             </div>
           </article>`;
@@ -288,7 +329,7 @@ ${(H.about.paragraphs || []).map((p) => `        <p>${txt(p)}</p>`).join("\n")}
     <span>${esc(S.domain)}</span>
   </div>
 </footer>
-
+${usesGallery ? GALLERY : ""}
 </body>
 </html>
 `;

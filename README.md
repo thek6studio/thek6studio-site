@@ -20,6 +20,8 @@ Text in [square brackets] shows up highlighted on the site, so unfinished bits a
 3. Fill in the name, description, stage, subject, price and cover image, and paste the Payhip link.
 4. Save.
 
+Optional previews: add **Preview images** (pages teachers can flick through in a pop-up) and/or a **Preview PDF** (opens in a new tab). Only upload sample pages here. Anything in the editor is public, so the full unit files belong in Payhip.
+
 A unit with no Payhip link shows a "Coming soon" button, or a button to another store if you fill in that link instead.
 
 ## Hosting settings (for Cloudflare Pages or Netlify)

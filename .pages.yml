@@ -2,8 +2,16 @@
 # This decides which boxes you see when you edit the site. The design itself is in build.js and /design.
 
 media:
-  input: static/images
-  output: /images
+  - name: images
+    label: Images
+    input: static/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp, gif]
+  - name: previews
+    label: Preview PDFs
+    input: static/previews
+    output: /previews
+    extensions: [pdf]
 
 content:
   - name: products
@@ -28,9 +36,17 @@ content:
         type: select
         options: { values: [Creative Arts, HSIE, PDHPE, Science and Technology, English, Mathematics] }
       - { name: price, label: "Price as shown on the site (e.g. $14.00)", type: string }
-      - { name: image, label: Cover image (landscape 16:9 works best), type: image }
+      - { name: image, label: Cover image (landscape 16:9 works best), type: image, options: { media: images } }
       - { name: image_alt, label: Image description (for screen readers), type: string }
       - { name: payhip_key, label: "Payhip product link or key (e.g. https://payhip.com/b/AbC1)", type: string }
+      - name: preview_images
+        label: "Preview images (optional): pages teachers can flick through before buying"
+        type: image
+        options: { media: images, path: previews, multiple: { max: 10 } }
+      - name: preview_pdf
+        label: "Preview PDF (optional): opens in a new tab. Use a sample, not the full unit!"
+        type: file
+        options: { media: previews, extensions: [pdf] }
       - { name: other_link, label: "Optional: link to another store instead (used only if Payhip is empty)", type: string }
       - { name: other_link_label, label: "Optional: text for that button (e.g. View on TPT)", type: string }
       - { name: order, label: Position in the list (1 = first), type: number }
@@ -57,7 +73,7 @@ content:
         label: Subject
         type: select
         options: { values: [Creative Arts, HSIE, PDHPE, Science and Technology, English, Mathematics] }
-      - { name: image, label: Preview image (landscape 16:9), type: image }
+      - { name: image, label: Preview image (landscape 16:9), type: image, options: { media: images } }
       - { name: image_alt, label: Image description, type: string }
       - { name: payhip_key, label: "Payhip link for the free product (adds a 'Get it free' button)", type: string }
       - { name: order, label: Position (1 = first), type: number }
